@@ -1,0 +1,63 @@
+[
+  {
+    "id": "VIT-306",
+    "issueType": "room_cleaning",
+    "title": "Floor Mopping",
+    "description": "Floor has stains",
+    "roomNumber": "663",
+    "block": "Block Q",
+    "studentId": "26BIT0443",
+    "createdTime": "Just now",
+    "timeSlot": "Next Available Slot",
+    "status": "VERIFIED",
+    "assignedCleaner": "RAJ",
+    "cleanerContact": "Ext. 3401",
+    "photoUrl": "data:image/png;base64,samplephoto",
+    "cleanedDate": "21 Sept 2026"
+  },
+  {
+    "id": "VIT-104",
+    "issueType": "room_cleaning",
+    "title": "General Room Cleaning",
+    "description": "Please sweep under beds and mop floor.",
+    "roomNumber": "663",
+    "block": "Block Q",
+    "studentId": "26BIT0443",
+    "createdTime": "Today, 10:30 AM",
+    "timeSlot": "Next Available Slot",
+    "status": "IN PROGRESS",
+    "assignedCleaner": "RAJ",
+    "cleanerContact": "Ext. 3401",
+    "cleanedDate": "21 Sep 2026"
+  },
+  {
+    "id": "VIT-098",
+    "issueType": "deep_cleaning",
+    "title": "Deep Cleaning",
+    "description": "Balcony dust and floor scrubbing done thoroughly.",
+    "roomNumber": "663",
+    "block": "Block Q",
+    "studentId": "26BIT0443",
+    "createdTime": "Yesterday, 04:15 PM",
+    "timeSlot": "Standard Service Slot",
+    "status": "VERIFIED",
+    "assignedCleaner": "Rajesh",
+    "cleanerContact": "Ext. 3403",
+    "cleanedDate": "20 Sep 2026"
+  },
+  {
+    "id": "VIT-105",
+    "issueType": "bathroom_cleaning",
+    "title": "Bathroom Cleaning",
+    "description": "Floor scrub and basin cleaning requested.",
+    "roomNumber": "665",
+    "block": "Block Q",
+    "studentId": "26BIT0437",
+    "createdTime": "Today, 11:00 AM",
+    "timeSlot": "Next Available Slot",
+    "status": "ASSIGNED",
+    "assignedCleaner": "kannan",
+    "cleanerContact": "Ext. 3402",
+    "cleanedDate": "21 Sep 2026"
+  }
+]

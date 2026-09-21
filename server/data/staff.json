@@ -1,0 +1,6 @@
+[
+  { "id": "staff-1", "name": "RAJ", "phone": "Ext. 3401", "role": "Cleaning Associate" },
+  { "id": "staff-2", "name": "kannan", "phone": "Ext. 3402", "role": "Floor Supervisor" },
+  { "id": "staff-3", "name": "Rajesh", "phone": "Ext. 3403", "role": "Sanitation Specialist" },
+  { "id": "staff-4", "name": "kumar", "phone": "Ext. 3404", "role": "Deep Cleaning Specialist" }
+]

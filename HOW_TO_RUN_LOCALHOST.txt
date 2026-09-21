@@ -1,0 +1,38 @@
+========================================================================
+             VITidy - HOW TO RUN ON LOCALHOST IN YOUR BROWSER
+========================================================================
+
+Choose any ONE of the easy methods below:
+
+------------------------------------------------------------------------
+METHOD 1: ONE-CLICK LAUNCH (RECOMMENDED FOR WINDOWS)
+------------------------------------------------------------------------
+1. Simply double-click "START_LOCALHOST.bat"
+2. It will automatically check Node.js, install packages if needed,
+   start the localhost server, and open your browser automatically!
+
+------------------------------------------------------------------------
+METHOD 2: STANDARD COMMAND LINE (IF YOU HAVE NODE.JS)
+------------------------------------------------------------------------
+1. Open your terminal / command prompt in this project folder.
+2. Run:
+      npm install
+3. Run:
+      npm run dev
+4. Your browser will automatically open to http://localhost:5180
+   (If it does not open automatically, visit http://localhost:5180)
+
+------------------------------------------------------------------------
+METHOD 3: ZERO-SETUP INSTANT BROWSER LAUNCH (NO NODE.JS NEEDED)
+------------------------------------------------------------------------
+If your guide, friend, or examiner does not have Node.js or npm installed:
+1. Double-click "VITidy_Preview.html" in this folder.
+2. It opens immediately in ANY browser (Chrome, Edge, Firefox, Safari)
+   with 100% full interactive functionality, login, booking, and requests!
+
+------------------------------------------------------------------------
+LOGIN TEST CREDENTIALS:
+------------------------------------------------------------------------
+Username: 26BIT000  (or any 26BITxxx ID)
+Password: TEST123
+========================================================================
