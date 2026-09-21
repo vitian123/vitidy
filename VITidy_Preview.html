@@ -105,7 +105,7 @@
       <div class="flex flex-col items-center text-center pt-1 pb-1.5 sm:pt-3 sm:pb-3">
         <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.12em] text-neutral-400 block">Welcome,</span>
         <h2 id="welcomeUser" class="text-xs sm:text-sm font-semibold tracking-tight text-neutral-600 mt-0.5">26BIT000</h2>
-        <h1 class="text-[19px] sm:text-[22px] font-serif font-bold text-neutral-950 tracking-tight mt-0.5 sm:mt-1">Block Q • Room - 663</h1>
+        <h1 id="welcomeRoomBanner" class="text-[19px] sm:text-[22px] font-serif font-bold text-neutral-950 tracking-tight mt-0.5 sm:mt-1">Block Q • Room - 663</h1>
       </div>
 
       <!-- TWO PRIMARY ACTION BLOCKS (Clickable, but not opening) -->
@@ -192,7 +192,7 @@
       <div class="w-full max-w-[400px] max-h-[90vh] bg-white rounded-2xl shadow-2xl border border-neutral-200 flex flex-col overflow-hidden">
         <div class="p-4 border-b border-neutral-100 flex items-center justify-between">
           <div>
-            <div class="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Block Q • Room 663</div>
+            <div id="createModalRoomText" class="text-[11px] font-bold uppercase tracking-wider text-neutral-500">Block Q • Room 663</div>
             <h2 class="text-base sm:text-lg font-bold text-neutral-950">Create New Request</h2>
           </div>
           <button onclick="closeCreateModal()" class="w-7 h-7 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-600 transition-colors cursor-pointer">
@@ -388,7 +388,7 @@
             <svg class="w-5.5 h-5.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
             <span>Home</span>
           </button>
-          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-500">Block Q • Room 663</span>
+          <span id="viewModalRoomText" class="text-xs font-semibold uppercase tracking-wider text-neutral-500">Block Q • Room 663</span>
           <button type="button" onclick="closeViewModal()" class="w-10 h-10 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-600 transition-colors cursor-pointer" aria-label="Close">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -450,6 +450,25 @@
       }
     ];
 
+    let currentUser = {
+      regNo: '26BIT0443',
+      block: 'Block Q',
+      roomNumber: '663'
+    };
+
+    const ROOM_663_STUDENTS = [
+      '26BIT0443','26BIT0438','26BIT442','26BIT0442',
+      '26BIT441','26BIT0441','26BIT440','26BIT0440',
+      '26BIT439','26BIT0439','26BIT000'
+    ];
+
+    const ROOM_665_STUDENTS = [
+      '26BIT0437','26BIT0436','26BIT435','26BIT0435',
+      '26BIT434','26BIT0434','26BIT4433','26BIT432','26BIT0432'
+    ];
+
+    const STAFF_LIST = ['RAJ', 'kannan', 'Rajesh', 'kumar'];
+
     function togglePass() {
       const p = document.getElementById('password');
       p.type = p.type === 'password' ? 'text' : 'password';
@@ -478,7 +497,21 @@
       arr.style.display = 'none';
 
       setTimeout(() => {
-        if (u.value.trim().toUpperCase() === '26BIT000' && p.value === 'TEST123') {
+        const usernameVal = u.value.trim().toUpperCase();
+        const passVal = p.value;
+
+        const isRoom663 = ROOM_663_STUDENTS.includes(usernameVal);
+        const isRoom665 = ROOM_665_STUDENTS.includes(usernameVal);
+
+        const isValidPass = passVal === 'Password@123' || passVal === 'TEST123';
+
+        if ((isRoom663 || isRoom665) && isValidPass) {
+          currentUser = {
+            regNo: usernameVal,
+            block: 'Block Q',
+            roomNumber: isRoom663 ? '663' : '665'
+          };
+
           txt.innerText = 'Verified';
           arr.style.display = 'none';
           btn.disabled = true;
@@ -494,7 +527,10 @@
             document.getElementById('authScreen').classList.add('hidden');
             document.getElementById('dashboardScreen').classList.remove('hidden');
             document.getElementById('dashboardScreen').classList.add('flex');
-            document.getElementById('welcomeUser').innerText = u.value.trim().toUpperCase();
+            document.getElementById('welcomeUser').innerText = currentUser.regNo;
+            document.getElementById('welcomeRoomBanner').innerText = currentUser.block + ' • Room - ' + currentUser.roomNumber;
+            document.getElementById('createModalRoomText').innerText = currentUser.block + ' • Room ' + currentUser.roomNumber;
+            document.getElementById('viewModalRoomText').innerText = currentUser.block + ' • Room ' + currentUser.roomNumber;
           }, 600);
         } else {
           btn.disabled = false;
@@ -669,12 +705,13 @@
     }
     function finalConfirmBooking() {
       const service = document.getElementById('selService').value;
+      const assignedStaff = STAFF_LIST[Math.floor(Math.random() * STAFF_LIST.length)];
       const newTicket = {
         id: 'VIT-' + Math.floor(100 + Math.random() * 900),
         title: service,
         timeSlot: 'Next Available Slot',
         status: 'NEW',
-        cleaner: 'Hostel Staff (Pending)',
+        cleaner: assignedStaff,
         time: 'Just now',
         cleanedDate: '21 Sep 2026',
         photoUrl: currentPhotoData
